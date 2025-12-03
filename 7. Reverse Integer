@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int reverse(int x) {
+        long rev = 0;  // use long to handle overflow during calculation
+        
+        while (x != 0) {
+            int digit = x % 10;   // get last digit
+            rev = rev * 10 + digit; // add digit to reversed number
+            x = x / 10;            // remove last digit
+            
+            // check for 32-bit overflow
+            if (rev > INT_MAX || rev < INT_MIN)
+                return 0;
+        }
+        
+        return (int)rev;
+    }
+};
