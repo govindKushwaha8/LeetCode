@@ -1,0 +1,24 @@
+class Solution {
+public:
+    string longestWord(vector<string>& words) {
+        // Sort words lexicographically
+        sort(words.begin(), words.end());
+
+        unordered_set<string> st;
+        string ans = "";
+
+        for (string word : words) {
+            // If word length is 1 OR its prefix exists
+            if (word.length() == 1 || st.count(word.substr(0, word.length() - 1))) {
+                st.insert(word);
+
+                // Update answer
+                if (word.length() > ans.length()) {
+                    ans = word;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
