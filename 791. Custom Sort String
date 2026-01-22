@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        vector<int> priority(26, 100);
+        
+        // Step 1: assign priority from order
+        for (int i = 0; i < order.size(); i++) {
+            priority[order[i] - 'a'] = i;
+        }
+        
+        // Step 2: sort string s using priority
+        sort(s.begin(), s.end(), [&](char a, char b) {
+            return priority[a - 'a'] < priority[b - 'a'];
+        });
+        
+        return s;
+    }
+};
