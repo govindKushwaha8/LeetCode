@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        vector<int> sortedArr = arr;
+        sort(sortedArr.begin(), sortedArr.end());
+        
+        int chunks = 0;
+        int maxOriginal = 0, maxSorted = 0;
+        
+        for (int i = 0; i < arr.size(); i++) {
+            maxOriginal = max(maxOriginal, arr[i]);
+            maxSorted = max(maxSorted, sortedArr[i]);
+            
+            if (maxOriginal == maxSorted)
+                chunks++;
+        }
+        return chunks;
+    }
+};
