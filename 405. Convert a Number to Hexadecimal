@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string toHex(int num) {
+        if (num == 0) return "0";
+        
+        unsigned int n = num;  // handle negative numbers
+        string hex = "";
+        string map = "0123456789abcdef";
+        
+        while (n > 0) {
+            int rem = n % 16;
+            hex = map[rem] + hex;
+            n = n / 16;
+        }
+        
+        return hex;
+    }
+};
