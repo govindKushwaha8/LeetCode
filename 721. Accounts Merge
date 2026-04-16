@@ -1,0 +1,56 @@
+class Solution {
+public:
+    unordered_map<string, string> parent;
+    unordered_map<string, string> owner;
+
+    string find(string s) {
+        if (parent[s] == s)
+            return s;
+        return parent[s] = find(parent[s]); // path compression
+    }
+
+    void unite(string a, string b) {
+        string p1 = find(a);
+        string p2 = find(b);
+        if (p1 != p2)
+            parent[p2] = p1;
+    }
+
+    vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
+        
+        // Step 1: Initialize
+        for (auto &acc : accounts) {
+            string name = acc[0];
+            for (int i = 1; i < acc.size(); i++) {
+                string email = acc[i];
+                parent[email] = email;
+                owner[email] = name;
+            }
+        }
+
+        // Step 2: Union
+        for (auto &acc : accounts) {
+            for (int i = 2; i < acc.size(); i++) {
+                unite(acc[1], acc[i]);
+            }
+        }
+
+        // Step 3: Group emails
+        unordered_map<string, set<string>> groups;
+        for (auto &p : parent) {
+            string root = find(p.first);
+            groups[root].insert(p.first);
+        }
+
+        // Step 4: Build result
+        vector<vector<string>> result;
+        for (auto &g : groups) {
+            vector<string> temp;
+            temp.push_back(owner[g.first]);
+            temp.insert(temp.end(), g.second.begin(), g.second.end());
+            result.push_back(temp);
+        }
+
+        return result;
+    }
+};
