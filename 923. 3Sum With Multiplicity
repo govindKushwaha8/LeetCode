@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int threeSumMulti(vector<int>& arr, int target) {
+        const int MOD = 1e9 + 7;
+        
+        vector<long> count(101, 0);
+        for (int x : arr) count[x]++;
+        
+        long ans = 0;
+        
+        for (int x = 0; x <= 100; x++) {
+            for (int y = x; y <= 100; y++) {
+                int z = target - x - y;
+                
+                if (z < 0 || z > 100) continue;
+                if (z < y) continue; // maintain x ≤ y ≤ z
+                
+                if (x == y && y == z) {
+                    // C(n,3)
+                    long n = count[x];
+                    ans += (n * (n - 1) * (n - 2)) / 6;
+                }
+                else if (x == y && y != z) {
+                    // C(n,2) * count[z]
+                    long n = count[x];
+                    ans += (n * (n - 1) / 2) * count[z];
+                }
+                else if (x < y && y == z) {
+                    // count[x] * C(n,2)
+                    long n = count[y];
+                    ans += count[x] * (n * (n - 1) / 2);
+                }
+                else {
+                    // all different
+                    ans += count[x] * count[y] * count[z];
+                }
+                
+                ans %= MOD;
+            }
+        }
+        
+        return ans;
+    }
+};
