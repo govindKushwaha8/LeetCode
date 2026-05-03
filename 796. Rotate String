@@ -1,0 +1,11 @@
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        // Step 1: length check
+        if (s.size() != goal.size()) return false;
+
+        // Step 2: check rotation
+        string temp = s + s;
+        return temp.find(goal) != string::npos;
+    }
+};
