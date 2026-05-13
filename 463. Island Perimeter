@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int perimeter = 0;
+        int rows = grid.size();
+        int cols = grid[0].size();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+
+                // If current cell is land
+                if (grid[i][j] == 1) {
+
+                    // Every land cell contributes 4 sides
+                    perimeter += 4;
+
+                    // If upper cell is also land, remove 2 sides
+                    if (i > 0 && grid[i - 1][j] == 1) {
+                        perimeter -= 2;
+                    }
+
+                    // If left cell is also land, remove 2 sides
+                    if (j > 0 && grid[i][j - 1] == 1) {
+                        perimeter -= 2;
+                    }
+                }
+            }
+        }
+
+        return perimeter;
+    }
+};
