@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int findNonMinOrMax(vector<int>& nums) {
+        if (nums.size() < 3) return -1;
+
+        int a = nums[0], b = nums[1], c = nums[2];
+
+        return a + b + c - min({a, b, c}) - max({a, b, c});
+    }
+};
