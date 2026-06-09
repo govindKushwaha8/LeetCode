@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int distinctAverages(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+
+        set<int> s;
+        int left = 0, right = nums.size() - 1;
+
+        while (left < right) {
+            s.insert(nums[left] + nums[right]); 
+            left++;
+            right--;
+        }
+
+        return s.size();
+    }
+};
