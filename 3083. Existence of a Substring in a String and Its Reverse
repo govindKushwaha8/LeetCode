@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isSubstringPresent(string s) {
+        unordered_set<string> st;
+
+        // Store all substrings of length 2
+        for (int i = 0; i < s.size() - 1; i++) {
+            st.insert(s.substr(i, 2));
+        }
+
+        // Check if reverse of any substring exists
+        for (int i = 0; i < s.size() - 1; i++) {
+            string t = s.substr(i, 2);
+            reverse(t.begin(), t.end());
+
+            if (st.count(t))
+                return true;
+        }
+
+        return false;
+    }
+};
