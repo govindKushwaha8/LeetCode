@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> minDistinctFreqPair(vector<int>& nums) {
+        unordered_map<int, int> freq;
+
+        for (int x : nums)
+            freq[x]++;
+
+        vector<int> val;
+        for (auto it : freq)
+            val.push_back(it.first);
+
+        sort(val.begin(), val.end());
+
+        for (int i = 0; i < val.size(); i++) {
+            for (int j = i + 1; j < val.size(); j++) {
+                if (freq[val[i]] != freq[val[j]])
+                    return {val[i], val[j]};
+            }
+        }
+
+        return {-1, -1};
+    }
+};
