@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int residuePrefixes(string s) {
+        vector<bool> seen(26, false);
+        int distinct = 0, ans = 0;
+
+        for (int i = 0; i < s.size(); i++) {
+            int idx = s[i] - 'a';
+            if (!seen[idx]) {
+                seen[idx] = true;
+                distinct++;
+            }
+
+            int len = i + 1;
+            if (distinct == (len % 3))
+                ans++;
+        }
+
+        return ans;
+    }
+};
