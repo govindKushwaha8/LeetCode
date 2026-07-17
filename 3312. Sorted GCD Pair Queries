@@ -1,0 +1,607 @@
+LeetCode Logo
+Daily Question
+Debugging...
+Debugging...
+
+
+
+
+
+
+
+
+
+2
+2Streaks
+Miss me yet?
+DCC Badge
+
+avatar
+Avatar
+govind8957
+Access all features with our Premium subscription!
+myLists
+My Lists
+notebook
+Notebook
+progress
+Progress
+points
+Points
+Try New Features
+Orders
+My Playgrounds
+Settings
+Appearance
+Sign Out
+Premium
+Description
+Editorial
+Editorial
+Solutions
+Solutions
+Submissions
+Submissions
+
+
+Code
+Testcase
+Testcase
+Test Result
+3312. Sorted GCD Pair Queries
+Hard
+Topics
+premium lock icon
+Companies
+Hint
+You are given an integer array nums of length n and an integer array queries.
+
+Let gcdPairs denote an array obtained by calculating the GCD of all possible pairs (nums[i], nums[j]), where 0 <= i < j < n, and then sorting these values in ascending order.
+
+For each query queries[i], you need to find the element at index queries[i] in gcdPairs.
+
+Return an integer array answer, where answer[i] is the value at gcdPairs[queries[i]] for each query.
+
+The term gcd(a, b) denotes the greatest common divisor of a and b.
+
+ 
+
+Example 1:
+
+Input: nums = [2,3,4], queries = [0,2,2]
+
+Output: [1,2,2]
+
+Explanation:
+
+gcdPairs = [gcd(nums[0], nums[1]), gcd(nums[0], nums[2]), gcd(nums[1], nums[2])] = [1, 2, 1].
+
+After sorting in ascending order, gcdPairs = [1, 1, 2].
+
+So, the answer is [gcdPairs[queries[0]], gcdPairs[queries[1]], gcdPairs[queries[2]]] = [1, 2, 2].
+
+Example 2:
+
+Input: nums = [4,4,2,1], queries = [5,3,1,0]
+
+Output: [4,2,1,1]
+
+Explanation:
+
+gcdPairs sorted in ascending order is [1, 1, 1, 2, 2, 4].
+
+Example 3:
+
+Input: nums = [2,2], queries = [0,0]
+
+Output: [2,2]
+
+Explanation:
+
+gcdPairs = [2].
+
+ 
+
+Constraints:
+
+2 <= n == nums.length <= 105
+1 <= nums[i] <= 5 * 104
+1 <= queries.length <= 105
+0 <= queries[i] < n * (n - 1) / 2
+ 
+Seen this question in a real interview before?
+1/6
+Yes
+No
+Accepted
+40,435/80.9K
+Acceptance Rate
+50.0%
+Topics
+icon
+Companies
+Hint 1
+Hint 2
+Discussion (146)
+
+Choose a type
+
+
+
+Copyright © 2026 LeetCode. All rights reserved.
+
+251
+
+
+146
+
+5332 Online
+C++
+Auto
+
+
+
+
+
+class Solution {
+public:
+    vector<int> gcdValues(vector<int>& nums, vector<long long>& queries) {
+        
+    }
+};
+123456
+Saved
+You must run your code first
+Daily Question
+
+Tag
+693. Binary Number with Alternating Bits
+Easy
+
+696. Count Binary Substrings
+Easy
+
+761. Special Binary String
+Hard
+
+762. Prime Number of Set Bits in Binary Representation
+Easy
+
+868. Binary Gap
+Easy
+
+1461. Check If a String Contains All Binary Codes of Size K
+Med.
+
+1022. Sum of Root To Leaf Binary Numbers
+Easy
+
+1356. Sort Integers by The Number of 1 Bits
+Easy
+
+1404. Number of Steps to Reduce a Number in Binary Representation to One
+Med.
+
+3666. Minimum Operations to Equalize Binary String
+Hard
+
+1680. Concatenation of Consecutive Binary Numbers
+Med.
+
+1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+Med.
+
+1536. Minimum Swaps to Arrange a Binary Grid
+Med.
+
+1545. Find Kth Bit in Nth Binary String
+Med.
+
+1582. Special Positions in a Binary Matrix
+Easy
+
+1758. Minimum Changes To Make Alternating Binary String
+Easy
+
+1784. Check if Binary String Has at Most One Segment of Ones
+Easy
+
+1888. Minimum Number of Flips to Make the Binary String Alternating
+Med.
+
+1980. Find Unique Binary String
+Med.
+
+3129. Find All Possible Stable Binary Arrays I
+Med.
+
+3130. Find All Possible Stable Binary Arrays II
+Hard
+
+1009. Complement of Base 10 Integer
+Easy
+
+3600. Maximize Spanning Tree Stability with Upgrades
+Hard
+
+3296. Minimum Number of Seconds to Make Mountain Height Zero
+Med.
+
+1415. The k-th Lexicographical String of All Happy Strings of Length n
+Med.
+
+1622. Fancy Sequence
+Hard
+
+1878. Get Biggest Three Rhombus Sums in a Grid
+Med.
+
+1727. Largest Submatrix With Rearrangements
+Med.
+
+3070. Count Submatrices with Top-Left Element and Sum Less Than k
+Med.
+
+3212. Count Submatrices With Equal Frequency of X and Y
+Med.
+
+3567. Minimum Absolute Difference in Sliding Submatrix
+Med.
+
+3643. Flip Square Submatrix Vertically
+Easy
+
+1886. Determine Whether Matrix Can Be Obtained By Rotation
+Easy
+
+1594. Maximum Non Negative Product in a Matrix
+Med.
+
+2906. Construct Product Matrix
+Med.
+
+3546. Equal Sum Grid Partition I
+Med.
+
+3548. Equal Sum Grid Partition II
+Hard
+
+2946. Matrix Similarity After Cyclic Shifts
+Easy
+
+2573. Find the String with LCP
+Hard
+
+2839. Check if Strings Can be Made Equal With Operations I
+Easy
+
+2840. Check if Strings Can be Made Equal With Operations II
+Med.
+
+3474. Lexicographically Smallest Generated String
+Hard
+
+2751. Robot Collisions
+Hard
+
+3418. Maximum Amount of Money Robot Can Earn
+Med.
+
+3661. Maximum Walls Destroyed by Robots
+Hard
+
+2075. Decode the Slanted Ciphertext
+Med.
+
+657. Robot Return to Origin
+Easy
+
+874. Walking Robot Simulation
+Med.
+
+2069. Walking Robot Simulation II
+Med.
+
+3653. XOR After Range Multiplication Queries I
+Med.
+
+3655. XOR After Range Multiplication Queries II
+Hard
+
+3740. Minimum Distance Between Three Equal Elements I
+Easy
+
+3741. Minimum Distance Between Three Equal Elements II
+Med.
+
+1320. Minimum Distance to Type a Word Using Two Fingers
+Hard
+
+1848. Minimum Distance to the Target Element
+Easy
+
+2463. Minimum Total Distance Traveled
+Hard
+
+2515. Shortest Distance to Target String in a Circular Array
+Easy
+
+3488. Closest Equal Element Queries
+Med.
+
+3761. Minimum Absolute Distance Between Mirror Pairs
+Med.
+
+3783. Mirror Distance of an Integer
+Easy
+
+1855. Maximum Distance Between a Pair of Values
+Med.
+
+2078. Two Furthest Houses With Different Colors
+Easy
+
+1722. Minimize Hamming Distance After Swap Operations
+Med.
+
+2452. Words Within Two Edits of Dictionary
+Med.
+
+2615. Sum of Distances
+Med.
+
+2833. Furthest Point From Origin
+Easy
+
+3464. Maximize the Distance Between Points on a Square
+Hard
+
+1559. Detect Cycles in 2D Grid
+Med.
+
+1391. Check if There is a Valid Path in a Grid
+Med.
+
+2033. Minimum Operations to Make a Uni-Value Grid
+Med.
+
+3225. Maximum Score From Grid Operations
+Hard
+
+3742. Maximum Path Score in a Grid
+Med.
+
+396. Rotate Function
+Med.
+
+788. Rotated Digits
+Med.
+
+796. Rotate String
+Easy
+
+48. Rotate Image
+Med.
+
+61. Rotate List
+Med.
+
+1861. Rotating the Box
+Med.
+
+3660. Jump Game IX
+Med.
+
+3629. Minimum Jumps to Reach End via Prime Teleportation
+Med.
+
+1914. Cyclically Rotating a Grid
+Med.
+
+2770. Maximum Number of Jumps to Reach the Last Index
+Med.
+
+2553. Separate the Digits in an Array
+Easy
+
+1665. Minimum Initial Energy to Finish Tasks
+Hard
+
+1674. Minimum Moves to Make Array Complementary
+Med.
+
+2784. Check if Array is Good
+Easy
+
+153. Find Minimum in Rotated Sorted Array
+Med.
+
+154. Find Minimum in Rotated Sorted Array II
+Hard
+
+1306. Jump Game III
+Med.
+
+1345. Jump Game IV
+Hard
+
+2540. Minimum Common Value
+Easy
+
+2657. Find the Prefix Common Array of Two Arrays
+Med.
+
+3043. Find the Length of the Longest Common Prefix
+Med.
+
+33. Search in Rotated Sorted Array
+Med.
+
+1752. Check if Array Is Sorted and Rotated
+Easy
+
+1340. Jump Game V
+Hard
+
+1871. Jump Game VII
+Med.
+
+3120. Count the Number of Special Characters I
+Easy
+
+3121. Count the Number of Special Characters II
+Med.
+
+3093. Longest Common Suffix Queries
+Hard
+
+3300. Minimum Element After Replacement With Digit Sum
+Easy
+
+3161. Block Placement Queries
+Hard
+
+2126. Destroying Asteroids
+Med.
+
+2144. Minimum Cost of Buying Candies With Discount
+Easy
+
+3633. Earliest Finish Time for Land and Water Rides I
+Easy
+
+3635. Earliest Finish Time for Land and Water Rides II
+Med.
+
+3751. Total Waviness of Numbers in Range I
+Med.
+
+3753. Total Waviness of Numbers in Range II
+Hard
+
+2574. Left and Right Sum Differences
+Easy
+
+2196. Create Binary Tree From Descriptions
+Med.
+
+2161. Partition Array According to Given Pivot
+Med.
+
+3689. Maximum Total Subarray Value I
+Med.
+
+3691. Maximum Total Subarray Value II
+Hard
+
+3558. Number of Ways to Assign Edge Weights I
+Med.
+
+3559. Number of Ways to Assign Edge Weights II
+Hard
+
+3838. Weighted Word Mapping
+Easy
+
+2130. Maximum Twin Sum of a Linked List
+Med.
+
+2095. Delete the Middle Node of a Linked List
+Med.
+
+3612. Process String with Special Operations I
+Med.
+
+3614. Process String with Special Operations II
+Hard
+
+1344. Angle Between Hands of a Clock
+Med.
+
+1732. Find the Highest Altitude
+Easy
+
+1840. Maximum Building Height
+Hard
+
+1833. Maximum Ice Cream Bars
+Med.
+
+1189. Maximum Number of Balloons
+Easy
+
+3699. Number of ZigZag Arrays I
+Hard
+
+3700. Number of ZigZag Arrays II
+Hard
+
+3737. Count Subarrays With Majority Element I
+Med.
+
+3739. Count Subarrays With Majority Element II
+Hard
+
+3020. Find the Maximum Number of Elements in Subset
+Med.
+
+1846. Maximum Element After Decreasing and Rearranging
+Med.
+
+1967. Number of Strings That Appear as Substrings in Word
+Easy
+
+1358. Number of Substrings Containing All Three Characters
+Med.
+
+2812. Find the Safest Path in a Grid
+Med.
+
+3286. Find a Safe Walk Through a Grid
+Med.
+
+3620. Network Recovery Pathways
+Hard
+
+2492. Minimum Score of a Path Between Two Cities
+Med.
+
+1301. Number of Paths with Max Score
+Hard
+
+1288. Remove Covered Intervals
+Med.
+
+3754. Concatenate Non-Zero Digits and Multiply by Sum I
+Easy
+
+3756. Concatenate Non-Zero Digits and Multiply by Sum II
+Med.
+
+3532. Path Existence Queries in a Graph I
+Med.
+
+3534. Path Existence Queries in a Graph II
+Hard
+
+2685. Count the Number of Complete Components
+Med.
+
+1331. Rank Transform of an Array
+Easy
+
+1291. Sequential Digits
+Med.
+
+3336. Find the Number of Subsequences With Equal GCD
+Hard
+
+3658. GCD of Odd and Even Sums
+Easy
+
+3867. Sum of GCD of Formed Pairs
+Med.
+
+3312. Sorted GCD Pair Queries
+Hard
+
