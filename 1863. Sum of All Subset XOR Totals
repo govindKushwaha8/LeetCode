@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int ans = 0;
+
+    void solve(int i, int xr, vector<int>& nums) {
+        if (i == nums.size()) {
+            ans += xr;
+            return;
+        }
+
+        // Don't take nums[i]
+        solve(i + 1, xr, nums);
+
+        // Take nums[i]
+        solve(i + 1, xr ^ nums[i], nums);
+    }
+
+    int subsetXORSum(vector<int>& nums) {
+        solve(0, 0, nums);
+        return ans;
+    }
+};
