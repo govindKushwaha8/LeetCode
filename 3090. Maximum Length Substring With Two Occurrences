@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int maximumLengthSubstring(string s) {
+        int f[26] = {}, l = 0, ans = 0;
+
+        for(int r = 0; r < s.size(); r++) {
+            f[s[r] - 'a']++;
+
+            while(f[s[r] - 'a'] > 2)
+                f[s[l++] - 'a']--;
+
+            ans = max(ans, r - l + 1);
+        }
+
+        return ans;
+    }
+};
