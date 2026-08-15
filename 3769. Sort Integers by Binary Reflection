@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int reflect(int n) {
+        int rev = 0;
+
+        while (n) {
+            rev = (rev << 1) | (n & 1);
+            n >>= 1;
+        }
+
+        return rev;
+    }
+
+    vector<int> sortByReflection(vector<int>& nums) {
+        sort(nums.begin(), nums.end(), [&](int a, int b) {
+            int x = reflect(a);
+            int y = reflect(b);
+
+            if (x == y)
+                return a < b;
+
+            return x < y;
+        });
+
+        return nums;
+    }
+};
