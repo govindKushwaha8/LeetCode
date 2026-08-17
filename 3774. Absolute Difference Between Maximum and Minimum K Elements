@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int absDifference(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+
+        int small = 0, large = 0;
+        int n = nums.size();
+
+        for (int i = 0; i < k; i++) {
+            small += nums[i];
+            large += nums[n - 1 - i];
+        }
+
+        return abs(large - small);
+    }
+};
