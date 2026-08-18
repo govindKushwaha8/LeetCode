@@ -1,0 +1,26 @@
+class Solution {
+public:
+    void insert(vector<int>& a, int temp, int i) {
+        if (i < 0 || a[i] <= temp) {
+            a[i + 1] = temp;
+            return;
+        }
+
+        a[i + 1] = a[i];
+        insert(a, temp, i - 1);
+    }
+
+    void sortRec(vector<int>& a, int n) {
+        if (n <= 1) return;
+
+        sortRec(a, n - 1);
+
+        int temp = a[n - 1];
+        insert(a, temp, n - 2);
+    }
+
+    vector<int> sortArray(vector<int>& nums) {
+        sortRec(nums, nums.size());
+        return nums;
+    }
+};
