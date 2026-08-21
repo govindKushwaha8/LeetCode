@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxSum(vector<int>& nums) {
+        unordered_set<int> st;
+        int sum = 0;
+        int maxi = INT_MIN;
+
+        for (int x : nums) {
+            maxi = max(maxi, x);
+
+            if (x > 0 && st.find(x) == st.end()) {
+                st.insert(x);
+                sum += x;
+            }
+        }
+
+        // If no positive number exists
+        if (sum == 0) {
+            return maxi;
+        }
+
+        return sum;
+    }
+};
