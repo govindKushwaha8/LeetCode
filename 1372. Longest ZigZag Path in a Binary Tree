@@ -1,0 +1,25 @@
+class Solution {
+public:
+
+    int ans = 0;
+
+    void solve(TreeNode* root, int left, int right)
+    {
+        if (root == NULL)
+            return;
+
+        ans = max(ans, max(left, right));
+
+        // If we came from left, next move should be right
+        solve(root->left, 0, right + 1);
+
+        // If we came from right, next move should be left
+        solve(root->right, left + 1, 0);
+    }
+
+    int longestZigZag(TreeNode* root)
+    {
+        solve(root, 0, 0);
+        return ans;
+    }
+};
