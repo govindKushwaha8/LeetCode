@@ -1,0 +1,34 @@
+class Solution {
+public:
+    string longestNiceSubstring(string s) {
+        
+        if (s.size() < 2)
+            return "";
+
+        // Store all characters present in the string
+        unordered_set<char> st(s.begin(), s.end());
+
+        for (int i = 0; i < s.size(); i++) {
+
+            char c = s[i];
+
+            // Check if both lowercase and uppercase exist
+            if (st.count(tolower(c)) && st.count(toupper(c))) {
+                continue;
+            }
+
+            // c cannot be part of a nice substring
+            string left = longestNiceSubstring(s.substr(0, i));
+            string right = longestNiceSubstring(s.substr(i + 1));
+
+            // Return the longer substring
+            if (left.size() >= right.size())
+                return left;
+            else
+                return right;
+        }
+
+        // All characters have both uppercase and lowercase
+        return s;
+    }
+};
