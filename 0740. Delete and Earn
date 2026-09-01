@@ -1,0 +1,30 @@
+class Solution {
+public:
+
+    int solve(vector<int>& points, int i, vector<int>& dp) {
+        if (i < 0)
+            return 0;
+
+        if (dp[i] != -1)
+            return dp[i];
+
+        int notTake = solve(points, i - 1, dp);
+
+        int take = points[i] + solve(points, i - 2, dp);
+
+        return dp[i] = max(take, notTake);
+    }
+
+    int deleteAndEarn(vector<int>& nums) {
+        vector<int> points(10001, 0);
+
+        // Same values ko combine karenge
+        for (int x : nums) {
+            points[x] += x;
+        }
+
+        vector<int> dp(10001, -1);
+
+        return solve(points, 10000, dp);
+    }
+};
