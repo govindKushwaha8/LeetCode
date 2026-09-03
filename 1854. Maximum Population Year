@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int maximumPopulation(vector<vector<int>>& logs) {
+
+        int maxPopulation = 0;
+        int ans = 1950;
+
+        for (int year = 1950; year <= 2050; year++) {
+
+            int population = 0;
+
+            for (auto log : logs) {
+
+                int birth = log[0];
+                int death = log[1];
+
+                // Person is alive in this year
+                if (birth <= year && year < death) {
+                    population++;
+                }
+            }
+
+            // Strictly greater -> earliest year
+            if (population > maxPopulation) {
+                maxPopulation = population;
+                ans = year;
+            }
+        }
+
+        return ans;
+    }
+};
