@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> findEvenNumbers(vector<int>& digits) {
+        vector<int> ans;
+        vector<int> freq(10, 0);
+
+        // Count frequency of each digit
+        for (int d : digits) {
+            freq[d]++;
+        }
+
+        // First digit: 1 to 9 (no leading zero)
+        for (int i = 1; i <= 9; i++) {
+            if (freq[i] == 0) continue;
+
+            freq[i]--;
+
+            // Second digit: 0 to 9
+            for (int j = 0; j <= 9; j++) {
+                if (freq[j] == 0) continue;
+
+                freq[j]--;
+
+                // Last digit must be even
+                for (int k = 0; k <= 8; k += 2) {
+                    if (freq[k] == 0) continue;
+
+                    int num = i * 100 + j * 10 + k;
+                    ans.push_back(num);
+                }
+
+                freq[j]++;
+            }
+
+            freq[i]++;
+        }
+
+        return ans;
+    }
+};
