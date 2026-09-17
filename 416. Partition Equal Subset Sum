@@ -1,0 +1,39 @@
+class Solution {
+public:
+
+    bool solve(vector<int>& nums, int index, int target) {
+
+        // Target achieved
+        if (target == 0)
+            return true;
+
+        // No elements left
+        if (index == nums.size())
+            return false;
+
+        // Take current element
+        if (nums[index] <= target) {
+            if (solve(nums, index + 1, target - nums[index]))
+                return true;
+        }
+
+        // Don't take current element
+        return solve(nums, index + 1, target);
+    }
+
+    bool canPartition(vector<int>& nums) {
+
+        int sum = 0;
+
+        for (int x : nums)
+            sum += x;
+
+        // Total sum must be even
+        if (sum % 2 != 0)
+            return false;
+
+        int target = sum / 2;
+
+        return solve(nums, 0, target);
+    }
+};  
