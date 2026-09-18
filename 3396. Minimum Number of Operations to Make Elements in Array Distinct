@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums) {
+        int ans = 0;
+        int n = nums.size();
+
+        while (true) {
+            unordered_set<int> st;
+            bool duplicate = false;
+
+            // Check remaining array
+            for (int i = ans * 3; i < n; i++) {
+                if (st.count(nums[i])) {
+                    duplicate = true;
+                    break;
+                }
+                st.insert(nums[i]);
+            }
+
+            // Already distinct
+            if (!duplicate)
+                return ans;
+
+            // Remove next 3 elements
+            ans++;
+        }
+    }
+};
