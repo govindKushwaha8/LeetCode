@@ -1,0 +1,181 @@
+LeetCode Logo
+
+Sorting
+Debugging...
+Debugging...
+
+
+
+
+
+
+
+
+
+
+0
+
+avatar
+Avatar
+govind8957
+Access all features with our Premium subscription!
+myLists
+My Lists
+notebook
+Notebook
+progress
+Progress
+points
+Points
+Try New Features
+Orders
+My Playgrounds
+Settings
+Appearance
+Sign Out
+Premium
+Description
+Note
+Note
+Editorial
+Editorial
+Solutions
+Solutions
+Submissions
+Submissions
+
+
+Test Result
+Code
+Testcase
+3992. Rearrange String to Avoid Character Pair
+Easy
+Topics
+premium lock icon
+Companies
+Hint
+You are given a string s and two distinct lowercase English letters x and y.
+
+Rearrange the characters of s to construct a new string t such that:
+
+t is a permutation of s.
+Every occurrence of y appears before every occurrence of x in t.
+Return any valid string t.
+
+ 
+
+Example 1:
+
+Input: s = "aabc", x = "a", y = "c"
+
+Output: "cbaa"
+
+Explanation:
+
+The string "cbaa" is a permutation of "aabc", and every occurrence of 'c' appears before every occurrence of 'a'.
+
+Example 2:
+
+Input: s = "dcab", x = "d", y = "b"
+
+Output: "cabd"
+
+Explanation:
+
+The string "cabd" is a permutation of "dcab", and every occurrence of 'b' appears before every occurrence of 'd'.
+
+Example 3:
+
+Input: s = "axe", x = "o", y = "x"
+
+Output: "axe"
+
+Explanation:
+
+The string "axe" is already valid. Since 'o' does not occur in the string, the required condition is automatically satisfied.
+
+ 
+
+Constraints:
+
+1 <= s.length <= 100
+s consists of lowercase English letters.
+x and y are lowercase English letters.
+x != y
+ 
+Seen this question in a real interview before?
+1/6
+Yes
+No
+Accepted
+42,652/54.5K
+Acceptance Rate
+78.2%
+Topics
+icon
+Companies
+Hint 1
+
+Hint 2
+
+Hint 3
+
+
+Discussion (19)
+
+
+Choose a type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright © 2026 LeetCode. All rights reserved.
+
+31
+
+
+19
+
+2 Online
+You must run your code first
+C++
+Auto
+
+
+
+
+
+class Solution {
+public:
+    string rearrangeString(string s, char x, char y) {
+        
+    }
+};
+123456
+Saved
+Case 1
+Case 2
+Case 3
+
+s =
+"aabc"
+x =
+"a"
+y =
+"c"
+
+Sorting
+Search questions
