@@ -1,0 +1,51 @@
+
+class Solution {
+public:
+    int solve(int i, int j, string &s1, string &s2, string &s3,
+              vector<vector<int>> &dp) {
+
+        int k = i + j;
+
+        // Base case
+        if (i == s1.size() && j == s2.size()) {
+            return 1;
+        }
+
+        // Already calculated
+        if (dp[i][j] != -1) {
+            return dp[i][j];
+        }
+
+        bool take1 = false;
+        bool take2 = false;
+
+        // Take character from s1
+        if (i < s1.size() && s1[i] == s3[k]) {
+            take1 = solve(i + 1, j, s1, s2, s3, dp);
+        }
+
+        // Take character from s2
+        if (j < s2.size() && s2[j] == s3[k]) {
+            take2 = solve(i, j + 1, s1, s2, s3, dp);
+        }
+
+        return dp[i][j] = (take1 || take2);
+    }
+
+    bool isInterleave(string s1, string s2, string s3) {
+
+        int n = s1.size();
+        int m = s2.size();
+
+        // Length check
+        if (n + m != s3.size()) {
+            return false;
+        }
+
+        // DP initialization
+        vector<vector<int>> dp(n + 1, vector<int>(m + 1, -1));
+
+        return solve(0, 0, s1, s2, s3, dp);
+    }
+};
+
