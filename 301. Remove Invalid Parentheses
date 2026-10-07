@@ -1,0 +1,98 @@
+class Solution {
+public:
+
+    void solve(string &s, int i, int left, int right,
+               int balance, string &curr, vector<string> &ans) {
+
+        // Invalid branch
+        if (balance < 0)
+            return;
+
+        // Base case
+        if (i == s.size()) {
+            if (left == 0 && right == 0 && balance == 0) {
+                ans.push_back(curr);
+            }
+            return;
+        }
+
+        char ch = s[i];
+
+        // Letter
+        if (ch != '(' && ch != ')') {
+            curr.push_back(ch);
+
+            solve(s, i + 1, left, right,
+                  balance, curr, ans);
+
+            curr.pop_back();
+            return;
+        }
+
+        // Remove '('
+        if (ch == '(' && left > 0) {
+            solve(s, i + 1, left - 1, right,
+                  balance, curr, ans);
+        }
+
+        // Remove ')'
+        if (ch == ')' && right > 0) {
+            solve(s, i + 1, left, right - 1,
+                  balance, curr, ans);
+        }
+
+        // Keep '('
+        if (ch == '(') {
+
+            curr.push_back('(');
+
+            solve(s, i + 1, left, right,
+                  balance + 1, curr, ans);
+
+            curr.pop_back();
+        }
+
+        // Keep ')'
+        else {
+
+            curr.push_back(')');
+
+            solve(s, i + 1, left, right,
+                  balance - 1, curr, ans);
+
+            curr.pop_back();
+        }
+    }
+
+    vector<string> removeInvalidParentheses(string s) {
+
+        int left = 0;
+        int right = 0;
+
+        // Find minimum removals
+        for (char ch : s) {
+
+            if (ch == '(') {
+                left++;
+            }
+            else if (ch == ')') {
+
+                if (left > 0)
+                    left--;
+                else
+                    right++;
+            }
+        }
+
+        vector<string> ans;
+        string curr;
+
+        solve(s, 0, left, right, 0, curr, ans);
+
+        // Remove duplicates
+        sort(ans.begin(), ans.end());
+        ans.erase(unique(ans.begin(), ans.end()), ans.end());
+
+        return ans;
+    }
+};
